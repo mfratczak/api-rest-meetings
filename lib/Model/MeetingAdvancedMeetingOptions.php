@@ -57,6 +57,7 @@ class MeetingAdvancedMeetingOptions implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'waiting_room_enabled' => 'bool',
         'video_best_fit' => 'bool',
         'publish_meeting' => 'bool',
         'encryption_type' => 'string',
@@ -75,6 +76,7 @@ class MeetingAdvancedMeetingOptions implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'waiting_room_enabled' => null,
         'video_best_fit' => null,
         'publish_meeting' => null,
         'encryption_type' => null,
@@ -114,6 +116,7 @@ class MeetingAdvancedMeetingOptions implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'waiting_room_enabled' => 'waitingRoomEnabled',
         'video_best_fit' => 'videoBestFit',
         'publish_meeting' => 'publishMeeting',
         'encryption_type' => 'encryptionType',
@@ -132,6 +135,7 @@ class MeetingAdvancedMeetingOptions implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'waiting_room_enabled' => 'setWaitingRoomEnabled',
         'video_best_fit' => 'setVideoBestFit',
         'publish_meeting' => 'setPublishMeeting',
         'encryption_type' => 'setEncryptionType',
@@ -150,6 +154,7 @@ class MeetingAdvancedMeetingOptions implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'waiting_room_enabled' => 'getWaitingRoomEnabled',
         'video_best_fit' => 'getVideoBestFit',
         'publish_meeting' => 'getPublishMeeting',
         'encryption_type' => 'getEncryptionType',
@@ -206,9 +211,9 @@ class MeetingAdvancedMeetingOptions implements ModelInterface, ArrayAccess
     const ENCRYPTION_TYPE_NO_ENCRYPTION = 'NO_ENCRYPTION';
     const ENCRYPTION_TYPE_ENCRYPTED_ONLY = 'ENCRYPTED_ONLY';
     const ENCRYPTION_TYPE_ENCRYPTED_OR_PSTN_ONLY = 'ENCRYPTED_OR_PSTN_ONLY';
-    
 
-    
+
+
     /**
      * Gets allowable values of the enum
      *
@@ -222,7 +227,7 @@ class MeetingAdvancedMeetingOptions implements ModelInterface, ArrayAccess
             self::ENCRYPTION_TYPE_ENCRYPTED_OR_PSTN_ONLY,
         ];
     }
-    
+
 
     /**
      * Associative array for storing property values
@@ -239,6 +244,7 @@ class MeetingAdvancedMeetingOptions implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['waiting_room_enabled'] = isset($data['waiting_room_enabled']) ? $data['waiting_room_enabled'] : null;
         $this->container['video_best_fit'] = isset($data['video_best_fit']) ? $data['video_best_fit'] : null;
         $this->container['publish_meeting'] = isset($data['publish_meeting']) ? $data['publish_meeting'] : null;
         $this->container['encryption_type'] = isset($data['encryption_type']) ? $data['encryption_type'] : null;
@@ -293,6 +299,12 @@ class MeetingAdvancedMeetingOptions implements ModelInterface, ArrayAccess
         return $this->container['video_best_fit'];
     }
 
+    public function getWaitingRoomEnabled()
+    {
+        return $this->container['waiting_room_enabled'];
+    }
+
+
     /**
      * Sets video_best_fit
      *
@@ -303,6 +315,13 @@ class MeetingAdvancedMeetingOptions implements ModelInterface, ArrayAccess
     public function setVideoBestFit($video_best_fit)
     {
         $this->container['video_best_fit'] = $video_best_fit;
+
+        return $this;
+    }
+
+   public function setWaitingRoomEnabled($waiting_room_enabled)
+    {
+        $this->container['waiting_room_enabled'] = $waiting_room_enabled;
 
         return $this;
     }
